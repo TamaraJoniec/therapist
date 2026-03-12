@@ -1,0 +1,1438 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daniella Britto | Terapia para Mães</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet" />
+    <style>
+      :root {
+        --cream: #faf6f0;
+        --blush: #e8c9b8;
+        --rose: #c9877a;
+        --burgundy: #7b0c37;
+        --sage: #8a9e8c;
+        --deep: #2d0514;
+        --warm-mid: #6b4e45;
+        --light-sage: #d4e0d5;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--cream);
+        color: var(--deep);
+        font-family: "DM Sans", sans-serif;
+        font-weight: 300;
+        overflow-x: hidden;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 1.5rem 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(250, 246, 240, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(200, 155, 130, 0.2);
+        animation: fadeDown 0.8s ease both;
+      }
+      .nav-logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.35rem;
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        color: var(--warm-mid);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        font-size: 0.82rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--deep);
+        opacity: 0.7;
+        transition: opacity 0.3s;
+      }
+      .nav-links a:hover {
+        opacity: 1;
+      }
+      .nav-cta {
+        background: var(--burgundy);
+        color: var(--cream) !important;
+        opacity: 1 !important;
+        padding: 0.6rem 1.4rem;
+        border-radius: 2px;
+        transition: background 0.3s !important;
+      }
+      .nav-cta:hover {
+        background: var(--rose) !important;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-top: 5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 6vw 5vw 6vw 8vw;
+        position: relative;
+        z-index: 2;
+        animation: fadeUp 1s 0.3s ease both;
+      }
+      .hero-tag {
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--rose);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      .hero-tag::before {
+        content: "";
+        display: inline-block;
+        width: 30px;
+        height: 1px;
+        background: var(--rose);
+      }
+      h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.8rem, 5vw, 4.5rem);
+        font-weight: 300;
+        line-height: 1.15;
+        color: var(--deep);
+        margin-bottom: 1.8rem;
+      }
+      h1 em {
+        font-style: italic;
+        color: var(--burgundy);
+      }
+      .hero-sub {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--warm-mid);
+        max-width: 400px;
+        margin-bottom: 3rem;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--burgundy);
+        color: var(--cream);
+        padding: 1rem 2.2rem;
+        border: none;
+        border-radius: 2px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          background 0.3s,
+          transform 0.2s;
+        display: inline-block;
+      }
+      .btn-primary:hover {
+        background: var(--rose);
+        transform: translateY(-2px);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--warm-mid);
+        padding: 1rem 2.2rem;
+        border: 1px solid var(--blush);
+        border-radius: 2px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          border-color 0.3s,
+          color 0.3s,
+          transform 0.2s;
+        display: inline-block;
+      }
+      .btn-outline:hover {
+        border-color: var(--rose);
+        color: var(--burgundy);
+        transform: translateY(-2px);
+      }
+
+      .hero-right {
+        position: relative;
+        overflow: hidden;
+        animation: fadeIn 1.2s 0.5s ease both;
+      }
+      .hero-img-wrap {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, var(--blush) 0%, var(--light-sage) 50%, var(--blush) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero-illustration {
+        width: 65%;
+        max-width: 380px;
+        position: relative;
+        z-index: 2;
+      }
+      /* Soft organic blob background */
+      .hero-blob {
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+        background: rgba(255, 255, 255, 0.35);
+        top: 10%;
+        left: 10%;
+        animation: morph 8s ease-in-out infinite;
+      }
+      @keyframes morph {
+        0%,
+        100% {
+          border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+        }
+        50% {
+          border-radius: 30% 60% 40% 70% / 60% 40% 60% 40%;
+        }
+      }
+      /* Floating SVG illustration of mother & baby */
+      .hero-svg {
+        width: 100%;
+        height: auto;
+        animation: float 6s ease-in-out infinite;
+        filter: drop-shadow(0 20px 40px rgba(168, 94, 82, 0.2));
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-14px);
+        }
+      }
+
+      /* decorative elements */
+      .hero-deco-ring {
+        position: absolute;
+        bottom: 8%;
+        left: 5%;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 1px solid rgba(201, 135, 122, 0.3);
+        animation: spin-slow 20s linear infinite;
+      }
+      .hero-deco-ring::after {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-radius: 50%;
+        border: 1px solid rgba(201, 135, 122, 0.2);
+      }
+      @keyframes spin-slow {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* floating stats */
+      .stat-card {
+        position: absolute;
+        background: rgba(250, 246, 240, 0.95);
+        border-radius: 4px;
+        padding: 1rem 1.4rem;
+        box-shadow: 0 8px 32px rgba(44, 36, 32, 0.1);
+        backdrop-filter: blur(8px);
+        z-index: 5;
+        animation: fadeUp 1s ease both;
+      }
+      .stat-card-1 {
+        bottom: 20%;
+        left: 10px;
+        animation-delay: 1s;
+      }
+      .stat-card-2 {
+        top: 25%;
+        right: 10px;
+        animation-delay: 1.3s;
+      }
+      .stat-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.8rem;
+        color: var(--burgundy);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 0.72rem;
+        color: var(--warm-mid);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-top: 0.2rem;
+      }
+
+      /* ── INTRO STRIP ── */
+      .intro-strip {
+        background: var(--deep);
+        padding: 1.2rem 8vw;
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        overflow: hidden;
+      }
+      .intro-strip p {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.1rem;
+        font-style: italic;
+        color: var(--blush);
+        white-space: nowrap;
+        animation: marquee 20s linear infinite;
+      }
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .strip-dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--rose);
+        flex-shrink: 0;
+      }
+
+      /* ── ABOUT ── */
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        padding: 8vw;
+        align-items: center;
+      }
+      .about-img-col {
+        position: relative;
+        padding-right: 5vw;
+        animation: fadeLeft 0.9s 0.2s ease both;
+      }
+      .about-img-frame {
+        width: 100%;
+        aspect-ratio: 1/1;
+        background: linear-gradient(160deg, var(--light-sage), var(--blush));
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .about-img-frame::before {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 2px;
+        z-index: 1;
+      }
+      .about-img-inner-svg {
+        width: 100%;
+        object-fit: cover;
+        object-position: center top;
+        z-index: 2;
+      }
+      .about-badge {
+        position: absolute;
+        bottom: -20px;
+        right: -20px;
+        width: 110px;
+        height: 110px;
+        background: var(--burgundy);
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: var(--cream);
+        text-align: center;
+        z-index: 3;
+        box-shadow: 0 8px 24px rgba(168, 94, 82, 0.4);
+      }
+      .about-badge span:first-child {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.8rem;
+        line-height: 1;
+      }
+      .about-badge span:last-child {
+        font-size: 0.65rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        opacity: 0.9;
+        max-width: 70px;
+        text-align: center;
+      }
+
+      .about-text-col {
+        padding-top: 1rem;
+        padding-left: 2vw;
+        animation: fadeRight 0.9s 0.2s ease both;
+      }
+      .section-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--sage);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      .section-label::before {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 1px;
+        background: var(--sage);
+      }
+      h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 3.5vw, 3rem);
+        font-weight: 300;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        color: var(--deep);
+      }
+      h2 em {
+        font-style: italic;
+        color: var(--burgundy);
+      }
+
+      .about-text-col p {
+        font-size: 0.98rem;
+        line-height: 1.9;
+        color: #5a4540;
+        margin-bottom: 1.2rem;
+      }
+      .credential-list {
+        list-style: none;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+      .credential-list li {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-size: 0.88rem;
+        color: var(--warm-mid);
+      }
+      .credential-list li::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--rose);
+        flex-shrink: 0;
+      }
+
+      /* ── SERVICES ── */
+      .services {
+        padding: 8vw;
+        background: #f3ede6;
+      }
+      .services-header {
+        text-align: center;
+        max-width: 560px;
+        margin: 0 auto 4rem;
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .service-card {
+        background: var(--cream);
+        padding: 2.5rem 2rem;
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        cursor: default;
+      }
+      .service-card::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--burgundy);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+      .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(44, 36, 32, 0.1);
+      }
+      .service-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .service-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--blush);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.4rem;
+      }
+      .service-card h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        margin-bottom: 0.8rem;
+        color: var(--deep);
+      }
+      .service-card p {
+        font-size: 0.9rem;
+        line-height: 1.8;
+        color: #7a5c55;
+      }
+      .service-num {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 3rem;
+        font-weight: 300;
+        color: rgb(200, 154, 130);
+        line-height: 1;
+      }
+
+      /* ── QUOTE ── */
+      .quote-section {
+        padding: 6vw 15vw;
+        text-align: center;
+        position: relative;
+        background: var(--cream);
+      }
+      .quote-mark {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 8rem;
+        color: var(--blush);
+        line-height: 0.5;
+        display: block;
+        margin-bottom: 1rem;
+      }
+      blockquote {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        font-style: italic;
+        font-weight: 300;
+        color: var(--deep);
+        line-height: 1.5;
+        margin-bottom: 2rem;
+      }
+      cite {
+        font-style: normal;
+        font-size: 0.8rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--rose);
+      }
+
+      /* ── HOW IT WORKS ── */
+      .how {
+        padding: 8vw;
+        background: var(--deep);
+        color: var(--cream);
+      }
+      .how-header {
+        max-width: 480px;
+        margin-bottom: 4rem;
+      }
+      .how-header h2 {
+        color: var(--blush);
+      }
+      .how-header p {
+        color: rgba(250, 246, 240, 0.65);
+        font-size: 0.98rem;
+        line-height: 1.8;
+        margin-top: 1rem;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        position: relative;
+      }
+      .steps::before {
+        content: "";
+        position: absolute;
+        top: 24px;
+        left: 12%;
+        right: 12%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgba(232, 201, 184, 0.3), transparent);
+      }
+      .step {
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+      .step-num {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 1px solid rgba(232, 201, 184, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.2rem;
+        color: var(--blush);
+        margin: 0 auto 1.5rem;
+        position: relative;
+        z-index: 1;
+        background: var(--deep);
+        transition:
+          background 0.3s,
+          border-color 0.3s;
+      }
+      .step:hover .step-num {
+        background: var(--burgundy);
+        border-color: var(--burgundy);
+      }
+      .step h4 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.2rem;
+        color: var(--cream);
+        margin-bottom: 0.6rem;
+        font-weight: 400;
+      }
+      .step p {
+        font-size: 0.85rem;
+        color: rgba(250, 246, 240, 0.55);
+        line-height: 1.7;
+      }
+
+      /* ── TESTIMONIALS ── */
+      .testimonials {
+        padding: 8vw;
+        background: #f3ede6;
+      }
+      .testimonials-header {
+        text-align: center;
+        max-width: 480px;
+        margin: 0 auto 4rem;
+      }
+
+      .testi-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .testi-card {
+        background: var(--cream);
+        padding: 2.5rem;
+        border-radius: 4px;
+        position: relative;
+      }
+      .testi-card::before {
+        content: '"';
+        font-family: "Cormorant Garamond", serif;
+        font-size: 5rem;
+        color: var(--blush);
+        position: absolute;
+        top: 0.5rem;
+        left: 1.5rem;
+        line-height: 1;
+      }
+      .testi-card p {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.15rem;
+        font-style: italic;
+        line-height: 1.7;
+        color: var(--deep);
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      .testi-author {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      .testi-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--blush);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1rem;
+        color: var(--burgundy);
+      }
+      .testi-name {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--deep);
+      }
+      .testi-role {
+        font-size: 0.75rem;
+        color: var(--rose);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .testi-card.featured {
+        background: var(--burgundy);
+        grid-column: span 2;
+      }
+      .testi-card.featured::before {
+        color: rgba(255, 255, 255, 0.25);
+      }
+      .testi-card.featured p {
+        color: var(--cream);
+      }
+      .testi-card.featured .testi-name {
+        color: var(--cream);
+      }
+      .testi-card.featured .testi-role {
+        color: rgba(250, 246, 240, 0.7);
+      }
+      .testi-card.featured .testi-avatar {
+        background: rgba(255, 255, 255, 0.2);
+        color: var(--cream);
+      }
+
+      /* ── CTA ── */
+      .cta-section {
+        padding: 8vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4vw;
+        align-items: center;
+        background: var(--cream);
+      }
+      .cta-left h2 {
+        margin-bottom: 1.2rem;
+      }
+      .cta-left p {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #7a5c55;
+        margin-bottom: 2.5rem;
+      }
+
+      .contact-form {
+        background: var(--deep);
+        padding: 3rem;
+        border-radius: 4px;
+      }
+      .contact-form h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.6rem;
+        color: var(--blush);
+        margin-bottom: 2rem;
+        font-weight: 300;
+      }
+      .form-group {
+        margin-bottom: 1.2rem;
+      }
+      .form-group label {
+        display: block;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(250, 246, 240, 0.55);
+        margin-bottom: 0.4rem;
+      }
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(232, 201, 184, 0.2);
+        border-radius: 2px;
+        padding: 0.85rem 1rem;
+        color: var(--cream);
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.9rem;
+        transition: border-color 0.3s;
+        outline: none;
+      }
+      .form-group select {
+        cursor: pointer;
+      }
+      .form-group select option {
+        background: var(--deep);
+      }
+      .form-group input:focus,
+      .form-group textarea:focus,
+      .form-group select:focus {
+        border-color: var(--rose);
+      }
+      .form-group textarea {
+        resize: none;
+        height: 90px;
+      }
+      .form-submit {
+        width: 100%;
+        background: var(--burgundy);
+        color: var(--cream);
+        border: none;
+        padding: 1rem;
+        border-radius: 2px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.85rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        cursor: pointer;
+        margin-top: 0.5rem;
+        transition: background 0.3s;
+      }
+      .form-submit:hover {
+        background: var(--rose);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: #1e1614;
+        padding: 4rem 8vw 2rem;
+        color: rgba(250, 246, 240, 0.5);
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 4vw;
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .footer-brand h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.6rem;
+        color: var(--blush);
+        font-weight: 300;
+        margin-bottom: 1rem;
+      }
+      .footer-brand p {
+        font-size: 0.88rem;
+        line-height: 1.8;
+        max-width: 280px;
+      }
+      .footer-col h4 {
+        font-size: 0.72rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(250, 246, 240, 0.3);
+        margin-bottom: 1.2rem;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col ul li {
+        margin-bottom: 0.6rem;
+      }
+      .footer-col ul a {
+        text-decoration: none;
+        color: rgba(250, 246, 240, 0.5);
+        font-size: 0.9rem;
+        transition: color 0.3s;
+      }
+      .footer-col ul a:hover {
+        color: var(--blush);
+      }
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.8rem;
+      }
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+      .social-links a {
+        color: rgba(250, 246, 240, 0.4);
+        text-decoration: none;
+        font-size: 0.8rem;
+        transition: color 0.3s;
+      }
+      .social-links a:hover {
+        color: var(--blush);
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes fadeRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Scroll reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+        .hero-right {
+          display: none;
+        }
+        .hero-left {
+          padding: 8rem 6vw 5rem;
+        }
+        .about {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto;
+        }
+        .about-img-col {
+          display: block;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .steps {
+          grid-template-columns: 1fr 1fr;
+        }
+        .testi-grid {
+          grid-template-columns: 1fr;
+        }
+        .testi-card.featured {
+          grid-column: span 1;
+        }
+        .cta-section {
+          grid-template-columns: 1fr;
+        }
+        .footer-top {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-logo">Daniella Britto</div>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#como-funciona">Como Funciona</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato" class="nav-cta">Agendar Sessão</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-tag">Terapia Especializada</div>
+        <h1>Um espaço só<br />para <em>você,</em><br />mamãe.</h1>
+        <p class="hero-sub">
+          O nascimento de um filho transforma tudo. Cuido da sua saúde emocional para que você possa estar presente, inteira e amorosa nessa nova fase da vida.
+        </p>
+        <div class="hero-btns">
+          <a href="#contato" class="btn-primary">Agendar Consulta</a>
+          <a href="#sobre" class="btn-outline">Conheça Daniella</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-img-wrap">
+          <div class="hero-blob"></div>
+          <!-- Mother & baby SVG illustration -->
+          <svg class="hero-svg hero-illustration" viewBox="0 0 300 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Mother body -->
+            <ellipse cx="150" cy="290" rx="70" ry="80" fill="#C9877A" opacity="0.3" />
+            <!-- Mother torso -->
+            <rect x="115" y="190" width="70" height="100" rx="20" fill="#C9877A" opacity="0.5" />
+            <!-- Mother head -->
+            <circle cx="150" cy="155" r="42" fill="#E8C9B8" />
+            <!-- Hair -->
+            <ellipse cx="150" cy="130" rx="45" ry="30" fill="#6B4E45" />
+            <ellipse cx="115" cy="155" rx="12" ry="22" fill="#6B4E45" />
+            <ellipse cx="185" cy="155" rx="12" ry="22" fill="#6B4E45" />
+            <!-- Face features -->
+            <circle cx="138" cy="158" r="3" fill="#A85E52" />
+            <circle cx="162" cy="158" r="3" fill="#A85E52" />
+            <path d="M140 172 Q150 180 160 172" stroke="#A85E52" stroke-width="2" fill="none" stroke-linecap="round" />
+            <!-- Arms cradling baby -->
+            <ellipse cx="105" cy="240" rx="14" ry="55" rx2="14" fill="#E8C9B8" transform="rotate(-20 105 240)" />
+            <ellipse cx="195" cy="240" rx="14" ry="55" fill="#E8C9B8" transform="rotate(20 195 240)" />
+            <!-- Baby -->
+            <ellipse cx="150" cy="245" rx="30" ry="22" fill="#FAD5C5" />
+            <!-- Baby head -->
+            <circle cx="150" cy="220" r="22" fill="#FAD5C5" />
+            <!-- Baby features -->
+            <circle cx="144" cy="221" r="2" fill="#A85E52" />
+            <circle cx="156" cy="221" r="2" fill="#A85E52" />
+            <path d="M146 228 Q150 232 154 228" stroke="#A85E52" stroke-width="1.5" fill="none" stroke-linecap="round" />
+            <!-- Baby wrapped in blanket -->
+            <ellipse cx="150" cy="260" rx="33" ry="18" fill="#8A9E8C" opacity="0.6" />
+            <!-- Decorative circles -->
+            <circle cx="60" cy="80" r="30" stroke="#E8C9B8" stroke-width="1" fill="none" opacity="0.5" />
+            <circle cx="60" cy="80" r="20" stroke="#E8C9B8" stroke-width="1" fill="none" opacity="0.3" />
+            <circle cx="240" cy="320" r="24" stroke="#E8C9B8" stroke-width="1" fill="none" opacity="0.4" />
+            <!-- Stars/sparkles -->
+            <circle cx="75" cy="40" r="3" fill="#C9877A" opacity="0.6" />
+            <circle cx="230" cy="60" r="2" fill="#C9877A" opacity="0.5" />
+            <circle cx="255" cy="150" r="3" fill="#8A9E8C" opacity="0.5" />
+            <circle cx="40" cy="200" r="2" fill="#8A9E8C" opacity="0.4" />
+            <!-- Heart -->
+            <path
+              d="M147 195 Q145 190 140 190 Q134 190 134 197 Q134 204 147 213 Q160 204 160 197 Q160 190 154 190 Q149 190 147 195Z"
+              fill="#C9877A"
+              opacity="0.7" />
+          </svg>
+          <div class="hero-deco-ring"></div>
+        </div>
+        <!-- Floating stat cards -->
+        <div class="stat-card stat-card-1">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Mães atendidas</div>
+        </div>
+        <div class="stat-card stat-card-2">
+          <div class="stat-num">8+</div>
+          <div class="stat-label">Anos de experiência</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE STRIP -->
+    <div class="intro-strip">
+      <p>
+        Você não precisa passar por isso sozinha &nbsp;✦&nbsp; Maternidade com saúde emocional &nbsp;✦&nbsp; Terapia especializada para mães &nbsp;✦&nbsp;
+        Presença, acolhimento e cura &nbsp;✦&nbsp; Você não precisa passar por isso sozinha &nbsp;✦&nbsp; Maternidade com saúde emocional &nbsp;✦&nbsp; Terapia
+        especializada para mães &nbsp;✦&nbsp; Presença, acolhimento e cura
+      </p>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about" id="sobre">
+      <div class="about-img-col">
+        <div class="about-img-frame">
+          <!-- <svg class="about-img-inner-svg" viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+          <!-- Therapist silhouette -->
+          <circle cx="100" cy="75" r="45" fill="#A85E52" opacity="0.4" />
+          <rect x="65" y="110" width="70" height="100" rx="20" fill="#A85E52" opacity="0.35" />
+          <circle cx="100" cy="72" r="36" fill="#E8C9B8" />
+          <!-- Hair -->
+          <ellipse cx="100" cy="48" rx="38" ry="26" fill="#6B4E45" />
+          <ellipse cx="68" cy="72" rx="10" ry="18" fill="#6B4E45" />
+          <ellipse cx="132" cy="72" rx="10" ry="18" fill="#6B4E45" />
+          <!-- Face -->
+          <circle cx="90" cy="76" r="2.5" fill="#A85E52" />
+          <circle cx="110" cy="76" r="2.5" fill="#A85E52" />
+          <path d="M92 86 Q100 93 108 86" stroke="#A85E52" stroke-width="1.8" fill="none" stroke-linecap="round" />
+          <!-- Shirt / professional -->
+          <rect x="72" y="118" width="56" height="70" rx="12" fill="#8A9E8C" opacity="0.6" />
+          <!-- Necklace / pendant -->
+          <circle cx="100" cy="130" r="4" fill="#C9877A" opacity="0.8" />
+          <!-- Books in hand -->
+          <rect x="125" y="150" width="18" height="28" rx="2" fill="#FAF6F0" opacity="0.7" />
+          <rect x="128" y="150" width="12" height="28" rx="2" fill="#E8C9B8" opacity="0.5" />
+          <!-- Decorative -->
+          <circle cx="25" cy="35" r="15" stroke="#C9877A" stroke-width="0.8" fill="none" opacity="0.4" />
+          <circle cx="175" cy="220" r="20" stroke="#8A9E8C" stroke-width="0.8" fill="none" opacity="0.4" />
+          <!-- </svg> -->
+          <img src="daniella-britto.jpg" viewBox="0 0 200 260" fill="none" alt="Foto de Daniella Britto" class="about-img-inner-svg" />
+        </div>
+        <div class="about-badge">
+          <span>CRP</span>
+          <span>Psicóloga Clínica</span>
+        </div>
+      </div>
+      <div class="about-text-col">
+        <div class="section-label">Sobre mim</div>
+        <h2>Daniella<br /><em>Britto</em></h2>
+        <p>
+          Sou psicóloga clínica especializada em saúde emocional materna, com foco no período do puerpério e nos primeiros anos da maternidade. Sei que o
+          nascimento de um bebê é ao mesmo tempo o momento mais lindo e mais desafiador da vida de uma mulher.
+        </p>
+        <p>
+          Meu trabalho é criar um espaço seguro e acolhedor para que você possa processar suas emoções, compreender suas transformações e encontrar equilíbrio
+          nessa nova identidade de mãe.
+        </p>
+        <ul class="credential-list">
+          <li>Psicóloga com 8+ anos de experiência clínica</li>
+          <li>Especialização em Saúde Materna e Perinatal</li>
+          <li>Formação em Terapia Cognitivo-Comportamental (TCC)</li>
+          <li>Certificação em Psicologia Perinatal</li>
+          <li>Atendimento presencial e online</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services reveal" id="servicos">
+      <div class="services-header">
+        <div class="section-label">Meus Serviços</div>
+        <h2>Como posso <em>ajudar você</em></h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-num">01</div>
+          <div class="service-icon">🌸</div>
+          <h3>Terapia Individual</h3>
+          <p>Sessões semanais personalizadas para processar as emoções da maternidade, ansiedade, depressão pós-parto, identidade materna e relacionamentos.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-num">02</div>
+          <div class="service-icon">🤝</div>
+          <h3>Apoio no Puerpério</h3>
+          <p>
+            Suporte intensivo para as primeiras semanas após o parto, quando o corpo e a mente passam por transformações profundas e muitas vezes invisíveis.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-num">03</div>
+          <div class="service-icon">💛</div>
+          <h3>Depressão Pós-Parto</h3>
+          <p>Tratamento especializado e acolhedor para a depressão pós-parto, baby blues e transtornos de ansiedade perinatal, com acompanhamento próximo.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-num">04</div>
+          <div class="service-icon">👫</div>
+          <h3>Terapia de Casal</h3>
+          <p>
+            Apoio para casais que estão reorganizando a dinâmica do relacionamento com a chegada do bebê, fortalecendo a parceria na maternidade e paternidade.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-num">05</div>
+          <div class="service-icon">💻</div>
+          <h3>Atendimento Online</h3>
+          <p>
+            Sessões por videoconferência para mães que precisam de flexibilidade e conforto — do sofá de casa, no horário que cabe na sua rotina com o bebê.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-num">06</div>
+          <div class="service-icon">🌿</div>
+          <h3>Grupo de Apoio</h3>
+          <p>Grupos mensais onde mães se encontram, compartilham experiências e se apoiam mutuamente num espaço facilitado e seguro de conexão.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="quote-section reveal">
+      <span class="quote-mark">"</span>
+      <blockquote>
+        Ser boa mãe não significa ser uma mãe perfeita. Significa ser uma mãe que cuida de si mesma o suficiente para poder cuidar do seu filho com amor
+        genuíno.
+      </blockquote>
+      <cite>— Daniella Britto, Psicóloga</cite>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how reveal" id="como-funciona">
+      <div class="how-header">
+        <div class="section-label" style="color: var(--sage)">Processo</div>
+        <h2>Como <em style="color: var(--rose)">funciona</em></h2>
+        <p>Um caminho simples e acolhedor para começar sua jornada de cuidado emocional.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h4>Primeiro Contato</h4>
+          <p>Entre em contato pelo formulário ou WhatsApp. Responderei em até 24 horas.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h4>Sessão Inicial</h4>
+          <p>Uma conversa inicial sem compromisso para conhecermos uma à outra e entender suas necessidades.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h4>Plano Terapêutico</h4>
+          <p>Juntas criamos um plano personalizado com objetivos claros e sessões regulares.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h4>Transformação</h4>
+          <p>Sessão a sessão, você se torna uma versão mais inteira, presente e equilibrada de si mesma.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials reveal" id="depoimentos">
+      <div class="testimonials-header">
+        <div class="section-label">Depoimentos</div>
+        <h2>O que dizem as <em>mães</em></h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card featured">
+          <p>
+            A Daniella foi um presente na minha vida. Cheguei completamente perdida, sem saber o que estava sentindo. Achava que deveria estar feliz, mas me
+            sentia vazia. Com ela aprendi que isso tem nome, tem tratamento, e que eu não estava sozinha. Hoje me sinto mãe de verdade — não perfeita, mas
+            inteira.
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">M</div>
+            <div>
+              <div class="testi-name">Mariana Costa</div>
+              <div class="testi-role">Mãe do Pedro, 8 meses</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <p>
+            Passei meses achando que a depressão pós-parto era fraqueza minha. A Daniella me mostrou que é adoecimento, e que pedir ajuda é o ato mais corajoso
+            de uma mãe.
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">A</div>
+            <div>
+              <div class="testi-name">Ana Luíza</div>
+              <div class="testi-role">Mãe da Sofia, 1 ano</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <p>
+            O atendimento online foi fundamental para mim. Não precisei me preocupar com babá ou deslocamento — apenas abri o computador e tive meu espaço
+            sagrado de cuidado.
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">C</div>
+            <div>
+              <div class="testi-name">Camila Rodrigues</div>
+              <div class="testi-role">Mãe do Miguel, 5 meses</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / CONTACT -->
+    <section class="cta-section reveal" id="contato">
+      <div class="cta-left">
+        <div class="section-label">Vamos Conversar</div>
+        <h2>Dê o primeiro<br />passo para <em>se cuidar</em></h2>
+        <p>
+          Você merece apoio. Entre em contato e vamos juntas encontrar o melhor caminho para a sua saúde emocional nesse momento tão especial e desafiador da
+          vida.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1rem">
+          <div style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.92rem; color: #7a5c55">
+            <span style="color: var(--rose); font-size: 1.1rem">📍</span> Rio de Janeiro, RJ — atendimento presencial e online
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.92rem; color: #7a5c55">
+            <span style="color: var(--rose); font-size: 1.1rem">📱</span> WhatsApp: +55 21 99504-1798
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.92rem; color: #7a5c55">
+            <span style="color: var(--rose); font-size: 1.1rem">✉️</span> danny.britto@gmail.com
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" name="contact" method="POST" netlify>
+        <h3>Agende sua consulta</h3>
+        <div class="form-group">
+          <label>Seu nome</label>
+          <input type="text" name="name" placeholder="Como posso te chamar?" />
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" name="email" placeholder="Seu email" />
+        </div>
+        <div class="form-group">
+          <label>Telefone</label>
+          <input type="tel" name="phone" placeholder="(XX) XXXXX-XXXX" />
+        </div>
+        <div class="form-group">
+          <label>Como prefere o atendimento?</label>
+          <select name="atendimento[]">
+            <option>Selecione...</option>
+            <option value="presencial">Presencial – Rio de Janeiro/RJ</option>
+            <option value="online">Online (videoconferência)</option>
+            <option value="indiferente">Ainda não sei</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>O que te trouxe até aqui?</label>
+          <textarea name="message" placeholder="Conte um pouco sobre o que está sentindo (opcional)..."></textarea>
+        </div>
+        <button class="form-submit" type="submit">Enviar mensagem</button>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>Daniella Britto</h3>
+          <p>Psicóloga especializada em saúde materna e perinatal. Cuidando das mães para que elas possam cuidar com amor.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="#">Terapia Individual</a></li>
+            <li><a href="#">Apoio no Puerpério</a></li>
+            <li><a href="#">Depressão Pós-Parto</a></li>
+            <li><a href="#">Terapia de Casal</a></li>
+            <li><a href="#">Grupos de Apoio</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="#">Sobre Daniella</a></li>
+            <li><a href="#">Como Funciona</a></li>
+            <li><a href="#">Depoimentos</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Daniella Britto Psicologia.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/db.maternar/">Instagram</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Scroll reveal
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      reveals.forEach((r) => observer.observe(r));
+
+      // Form submit
+      document.querySelector(".form-submit").addEventListener("click", function () {
+        this.textContent = "✓ Mensagem enviada!";
+        this.style.background = "var(--sage)";
+        setTimeout(() => {
+          this.textContent = "Enviar mensagem";
+          this.style.background = "";
+        }, 3000);
+      });
+
+      // Smooth nav highlight
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector("nav");
+        nav.style.boxShadow = window.scrollY > 50 ? "0 4px 20px rgba(44,36,32,0.08)" : "none";
+      });
+    </script>
+  </body>
+</html>
