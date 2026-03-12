@@ -120,15 +120,6 @@ O site é totalmente responsivo e otimizado para:
 - **Títulos**: Cormorant Garamond (serif)
 - **Corpo do texto**: DM Sans (sans-serif)
 
-## 📞 Informações de Contato
-
-**Daniella Britto**
-
-- **Email**: danny.britto@gmail.com
-- **WhatsApp**: +55 21 99504-1798
-- **Instagram**: [@db.maternar](https://instagram.com/db.maternar)
-- **Localização**: Rio de Janeiro, RJ
-
 ## 📋 Serviços Oferecidos
 
 - Terapia Individual
