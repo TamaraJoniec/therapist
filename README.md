@@ -2,6 +2,8 @@
 
 Uma landing page elegante e responsiva para Daniella Britto, psicóloga especializada em saúde materna e perinatal no Rio de Janeiro, Brasil.
 
+![Daniella Britto Website](screeshot.png)
+
 ## 🌟 Sobre o Projeto
 
 Este é um website profissional desenvolvido para Daniella Britto, psicóloga especializada em terapia para mães. O site apresenta seus serviços de forma elegante e acolhedora, refletindo o cuidado e a atenção que ela dedica às suas pacientes.
